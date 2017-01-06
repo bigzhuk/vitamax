@@ -140,6 +140,7 @@ tr.acyeditor_delete:hover td.acyeditor_enedition .acyeditor_zoneeditionsuppressi
 	display: inline-block;
 	background-color: white;
 	border: 1px solid #CCCCCC;
+	width: auto;
 }
 
 .acyeditor_closebutton{

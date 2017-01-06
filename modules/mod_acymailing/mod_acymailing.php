@@ -1,7 +1,7 @@
 <?php
 /**
  * @package	AcyMailing for Joomla!
- * @version	5.5.0
+ * @version	5.6.0
  * @author	acyba.com
  * @copyright	(C) 2009-2016 ACYBA S.A.R.L. All rights reserved.
  * @license	GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -109,6 +109,11 @@ $identifiedUser = null;
 $connectedUser = JFactory::getUser();
 if($params->get('loggedin', 1) && !empty($connectedUser->email)){
 	$identifiedUser = $userClass->get($connectedUser->email);
+}
+
+if(version_compare(JVERSION, '3.1.2', '>=')){
+	if(!empty($connectedUser->email)) $connectedUser->email = JStringPunycode::emailToUTF8($connectedUser->email);
+	if(!empty($identifiedUser->email)) $identifiedUser->email = JStringPunycode::emailToUTF8($identifiedUser->email);
 }
 
 $visibleLists = trim($params->get('lists', 'None'));

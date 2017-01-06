@@ -1,7 +1,7 @@
 <?php
 /**
  * @package	AcyMailing for Joomla!
- * @version	5.5.0
+ * @version	5.6.0
  * @author	acyba.com
  * @copyright	(C) 2009-2016 ACYBA S.A.R.L. All rights reserved.
  * @license	GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -988,7 +988,7 @@ class plgAcymailingTagcontent extends JPlugin{
 						$images->$floatVar = 'left';
 					}elseif(empty($tag->format)) $tag->format = 'TOP_RIGHT';
 					$style = 'float:'.$images->$floatVar.';padding-'.(($images->$floatVar == 'right') ? 'left' : 'right').':10px;padding-bottom:10px;';
-					if(!empty($tag->link) && empty($tag->nopictlink)) $picthtml .= '<a href="'.$link.'" style="text-decoration:none" >';
+					if(!empty($tag->link) && empty($tag->nopictlink)) $picthtml .= '<a target="_blank" href="'.$link.'" style="text-decoration:none" >';
 					$alt = '';
 					$altVar = $pictVar.'_alt';
 					if(!empty($images->$altVar)) $alt = $images->$altVar;
@@ -1016,7 +1016,7 @@ class plgAcymailingTagcontent extends JPlugin{
 				if(!empty($attachments)){
 					$afterArticle .= '<br />'.JText::_('ATTACHED_FILES').' :';
 					foreach($attachments as $oneAttachment){
-						$afterArticle .= '<br /><a href="'.$oneAttachment->url.'">'.(empty($oneAttachment->display_name) ? $oneAttachment->filename : $oneAttachment->display_name).'</a>';
+						$afterArticle .= '<br /><a target="_blank" href="'.$oneAttachment->url.'">'.(empty($oneAttachment->display_name) ? $oneAttachment->filename : $oneAttachment->display_name).'</a>';
 					}
 				}
 			}
@@ -1070,7 +1070,7 @@ class plgAcymailingTagcontent extends JPlugin{
 			if(!empty($tags)){
 				$afterArticle .= '<br />';
 				foreach($tags as $oneTag){
-					$afterArticle .= ' <a href="index.php?option=com_tags&view=tag&id='.$oneTag->id.'-'.$oneTag->alias.'">'.$oneTag->title.'</a> ';
+					$afterArticle .= ' <a target="_blank" href="index.php?option=com_tags&view=tag&id='.$oneTag->id.'-'.$oneTag->alias.'">'.$oneTag->title.'</a> ';
 				}
 			}
 		}
@@ -1124,9 +1124,9 @@ class plgAcymailingTagcontent extends JPlugin{
 				if(!empty($tag->catmaxwidth)) $style .= 'max-width:'.intval($tag->catmaxwidth).'px;';
 				if(!empty($tag->catmaxheight)) $style .= 'max-height:'.intval($tag->catmaxheight).'px;';
 				$resultTitle = '<img'.(empty($style) ? '' : ' style="'.$style.'"').' alt="" src="'.$article->catpict.'" />';
-				if(!empty($tag->cattitlelink)) $resultTitle = '<a href="index.php?option=com_content&view=category&id='.$this->currentcatid.'">'.$resultTitle.'</a>';
+				if(!empty($tag->cattitlelink)) $resultTitle = '<a target="_blank" href="index.php?option=com_content&view=category&id='.$this->currentcatid.'">'.$resultTitle.'</a>';
 			}else{
-				if(!empty($tag->cattitlelink)) $resultTitle = '<a href="index.php?option=com_content&view=category&id='.$this->currentcatid.'">'.$resultTitle.'</a>';
+				if(!empty($tag->cattitlelink)) $resultTitle = '<a target="_blank" href="index.php?option=com_content&view=category&id='.$this->currentcatid.'">'.$resultTitle.'</a>';
 				$resultTitle = '<h3 class="cattitle">'.$resultTitle.'</h3>';
 			}
 

@@ -1,7 +1,7 @@
 <?php
 /**
  * @package	AcyMailing for Joomla!
- * @version	5.5.0
+ * @version	5.6.0
  * @author	acyba.com
  * @copyright	(C) 2009-2016 ACYBA S.A.R.L. All rights reserved.
  * @license	GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -146,11 +146,11 @@ defined('_JEXEC') or die('Restricted access');
 
 				if(empty($identifiedUser->userid) AND $config->get('captcha_enabled') AND acymailing_level(1)){ ?>
 					<?php
-					echo '<p class="onefield fieldacycaptcha" id="field_captcha_'.$formName.'">';
+					echo '<div class="onefield fieldacycaptcha" id="field_captcha_'.$formName.'">';
 					$captchaClass = acymailing_get('class.acycaptcha');
 					$captchaClass->display($formName, true);
 					?>
-					</p>
+					</div>
 				<?php }
 
 				 if($params->get('showterms',false)){

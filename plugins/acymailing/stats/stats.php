@@ -1,7 +1,7 @@
 <?php
 /**
  * @package	AcyMailing for Joomla!
- * @version	5.5.0
+ * @version	5.6.0
  * @author	acyba.com
  * @copyright	(C) 2009-2016 ACYBA S.A.R.L. All rights reserved.
  * @license	GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -34,7 +34,7 @@ class plgAcymailingStats extends JPlugin{
 			$config = acymailing_config();
 			$itemId = $config->get('itemid', 0);
 			$item = empty($itemId) ? '' : '&Itemid='.$itemId;
-			$pictureLink = acymailing_frontendLink('index.php?option=com_acymailing&ctrl=stats&mailid='.$email->mailid.'&subid='.$user->subid.$item);
+			$pictureLink = acymailing_frontendLink('index.php?option=com_acymailing&ctrl=stats&mailid='.$email->mailid.'&subid='.$user->subid.$item, false);
 		}
 
 		$widthsize = $this->params->get('width', 50);

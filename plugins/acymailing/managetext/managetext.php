@@ -1,7 +1,7 @@
 <?php
 /**
  * @package	AcyMailing for Joomla!
- * @version	5.5.0
+ * @version	5.6.0
  * @author	acyba.com
  * @copyright	(C) 2009-2016 ACYBA S.A.R.L. All rights reserved.
  * @license	GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
@@ -139,6 +139,7 @@ class plgAcymailingManagetext extends JPlugin{
 		foreach($results as $var => $allresults){
 			foreach($allresults[0] as $i => $oneTag){
 				if(isset($tags[$oneTag])) continue;
+				$allresults[1][$i] = html_entity_decode($allresults[1][$i]);
 				if(!preg_match('#^([^=!<>~]+)(=|!=|<|>|&gt;|&lt;|~|!~)([^=!<>~]+)$#i', $allresults[1][$i], $operators)){
 					if($isAdmin) acymailing_display('Operation not found : '.$allresults[1][$i], 'error');
 					$tags[$oneTag] = $allresults[3][$i];
@@ -149,9 +150,10 @@ class plgAcymailingManagetext extends JPlugin{
 
 				$operatorsParts = explode('.', $operators[1]);
 				$operatorComp = 'acymailing';
-				if(count($operatorsParts) == 2 && in_array($operatorsParts[0], array('acymailing', 'joomla', 'var'))){
+				if(count($operatorsParts) > 1 && in_array($operatorsParts[0], array('acymailing', 'joomla', 'var'))){
 					$operatorComp = $operatorsParts[0];
-					$field = $operatorsParts[1];
+					unset($operatorsParts[0]);
+					$field = implode('.', $operatorsParts);
 				}
 
 				if($operatorComp == 'joomla'){

@@ -20,3 +20,10 @@
 2016-12-18T15:09:54+00:00	INFO 192.168.33.1	update	Downloading update file from https://downloads.joomla.org/cms/joomla3/3-6-5/Joomla_3.6.5-Stable-Update_Package.zip.
 2016-12-18T15:10:31+00:00	INFO 192.168.33.1	update	File Joomla_3.6.5-Stable-Update_Package.zip successfully downloaded.
 2016-12-18T15:12:52+00:00	INFO 192.168.33.1	update	File Joomla_3.6.5-Stable-Update_Package.zip successfully downloaded.
+2016-12-28T09:22:45+00:00	INFO 192.168.33.1	update	Update started by user Super User (429). Old version is 3.6.4.
+2016-12-28T09:22:45+00:00	INFO 192.168.33.1	update	File Joomla_3.6.5-Stable-Update_Package.zip successfully downloaded.
+2016-12-28T09:22:45+00:00	INFO 192.168.33.1	update	Starting installation of new version.
+2016-12-28T09:24:10+00:00	INFO 192.168.33.1	update	Finalising installation.
+2016-12-28T09:24:11+00:00	INFO 192.168.33.1	update	Deleting removed files and folders.
+2016-12-28T09:24:13+00:00	INFO 192.168.33.1	update	Cleaning up after installation.
+2016-12-28T09:24:13+00:00	INFO 192.168.33.1	update	Update to version 3.6.5 is complete.
